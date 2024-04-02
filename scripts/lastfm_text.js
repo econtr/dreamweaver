@@ -17,10 +17,10 @@ const LastFmText = () => {
 			/>
 			<div>
 				<div className='lastFM-title'>Listenting to: {lastTrack.trackName} by {lastTrack.artist}</div>
+				<div id="lastFMAlbum">Album: {lastTrack.album}</div>
 				<div className="lastFM-link">
 					<a id-= "lastFMlink" href={lastTrack.url} target="_blank" rel="noreferrer"> View on Last.fm</a>
 				</div>
-				<div id="lastFMAlbum">Album: {lastTrack.album}</div>
 			</div>
 		</div>
 	);
