@@ -1,29 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import useSWR from 'swr';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const LastFmText = () => {
-	const [lastTrack, setLastTrack] = useState(null);
+	const { data: lastTrack, error } = useSWR('/api/lastplayed', fetcher, {refreshInterval: 10000});
 
-	useEffect(() => {
-		const fetchData = async () => {
-			const responce = await fetch('/api/lastplayed');
-			const text = await responce.text();
-			console.log(text);
-
-			try {
-				const data = JSON.parse(text);
-				setLastTrack(data);
-			}
-			catch (e) {
-				console.error(e);
-			}
-		};
-	
-		fetchData();
-	}, []);
-
-	if (!lastTrack) {
-		return <p>Loading...</p>;
-	}
+	if (error) return <div>Failed to load</div>;
+	if (!lastTrack) return <div>Loading...</div>;
 
 	return (
 		<div>
