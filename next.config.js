@@ -9,4 +9,5 @@ const nextConfig = {
   // any configs you need
 };
 
+
 module.exports = withNextra(nextConfig);
