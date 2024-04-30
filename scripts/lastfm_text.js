@@ -24,8 +24,9 @@ const LastFmText = () => {
 				id="lastFMImg"
 				src={lastTrack.albumArt}
 				alt="Album Art"
+				style={{ float: 'left' }}
 			/>
-			<div>
+			<div style={{ clear: 'both'}}>
 				<div className='lastFM-title'>Listenting to: {lastTrack.trackName} by {lastTrack.artist}</div>
 				{lastTrack.album && <div id="lastFMAlbum">Album: {lastTrack.album}</div>}
 				<div className="lastFM-link">
