@@ -6,8 +6,9 @@ const withNextra = require("nextra")({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // any configs you need
+  images: {
+    domains: ["lastfm.freetls.fastly.net"],
+  },
 };
-
 
 module.exports = withNextra(nextConfig);
